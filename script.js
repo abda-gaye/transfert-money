@@ -14,7 +14,7 @@ let users = [
     {
       prenom: "alice",
       nom: "dah",
-      telephone: "703458267",
+      telephone: "773458267",
       email: "alice@gmail.com",
       solde:4000,
       photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
@@ -27,7 +27,7 @@ let users = [
     {
       prenom: "Mickel",
       nom: "robish",
-      telephone: "781234567",
+      telephone: "771234567",
       email: "Mickel@gmail.com",
       solde:2000,
       photo: "https://images.unsplash.com/photo-1563721572772-fbf713fff374?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVuJTIwYmxhY2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
@@ -36,7 +36,7 @@ let users = [
     {
       prenom: "Asta",
       nom: "Sylla",
-      telephone: "781236709",
+      telephone: "71236709",
       email: "SyllaAsta@gmail.com",
       solde:1000,
       photo: "https://images.unsplash.com/photo-1633419798503-0b0c628f267c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGJsYWNrJTIwZ2lybHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
@@ -50,7 +50,7 @@ let users = [
     {
       prenom: "fatou",
       nom: "Sylla",
-      telephone: "781236909",
+      telephone: "771236909",
       email: "SyllaAsta@gmail.com",
       solde:1000,
       photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFuJTIwYmxhY2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
@@ -103,6 +103,7 @@ function getData(data) {
   let addphone = document.querySelector('#addphone')
   let addemail = document.querySelector('#addemail')
   let addsolde = document.querySelector('#addsolde')
+  let addphoto = document.querySelector('#addphoto')
   let btnadd = document.querySelector('.btnadd')
 
 
@@ -210,7 +211,7 @@ btnsave.addEventListener('click',()=>{
       {
         numero:6,
         date:new Date().toLocaleDateString(),
-        montant:montant.value,
+        montant:-montant.value,
         sens:-1
       }
     )
@@ -272,7 +273,9 @@ btnDetail.addEventListener('click',()=>{
 
       });
   
-      myalert(`Transfert de ${montant} FCFA réussi à ${utilisateurDestinataire.nom} ${utilisateurDestinataire.prenom} !`,'green','450px');
+      myalert(`Transfert de ${montant} FCFA réussi à ${utilisateurDestinataire.nom} ${utilisateurDestinataire.prenom} !`,'green','650px');
+      utilisateurDestinataire.solde = parseInt(solde.innerText) + parseInt(montant)
+      utilisateurExpediteur.solde = parseInt(solde.innerText) + parseInt(montant)
     }
     printUser(utilisateurDestinataire)
   }
@@ -317,16 +320,16 @@ btnDetail.addEventListener('click',()=>{
 search.addEventListener("input",()=>{
   const searchvalue = search.value
   // on fait la recherche
-  const utilisateur = users.find(user=>user.telephone==searchvalue)
+  const utilisateur = users.find(user=>user.prenom===searchvalue)
   if (utilisateur) {
     printUser(utilisateur)
-    search.value = ''
+    // search.value = ''
 
   }
-  if (!utilisateur && searchvalue.length==9) {
-    myalert('utilisateur inexistant','','750px')
-    search.value = ''
-  }
+  // if (!utilisateur && searchvalue.length<7) {
+  //   myalert('utilisateur inexistant','','750px')
+  //   // search.value = ''
+  // }
 
 })
 document.querySelector('.add-user').addEventListener('click',()=>{
@@ -345,6 +348,11 @@ btnadd.addEventListener('click',()=>{
   let addphonevalue =addphone.value
   let addemailvalue =addemail.value
   let addsoldevalue =addsolde.value
+  let addphotovalue =addphoto.value
+  if (addnom.value===''|| addprenom.value===''||addphone.value===''||addemail.value===''|| addsolde.value==='' || addphoto.value==='') {
+    myalert("veiller remplir tous les champs",'','800px')
+  }
+ else{
   users.push(
     {
       prenom:addprenomvalue,
@@ -352,26 +360,27 @@ btnadd.addEventListener('click',()=>{
       telephone:addphonevalue,
       email:addemailvalue,
       solde:addsoldevalue,
-      photo:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dXNlciUyMGljb25lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+      photo:`${addphotovalue}`,
       transactions:[]
 
     }
   )
   myalert("utilisateur ajouté avec succés",'green','600px')
-
-  // addemail.value = ''
-  // addnom.value = ''
-  // addphone.value = ''
-  // addsolde.value = ''
-  // addprenom.value = ''
-  validate()
+ }
+  addemail.value = ''
+  addnom.value = ''
+  addphone.value = ''
+  addsolde.value = ''
+  addprenom.value = ''
+  addphoto.value = ''
+ 
 })
 
 function checkEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
-function validate() {
+const validate = () => {
   email = document.querySelector("#addemail").value;
 
   if (checkEmail(email)) {
