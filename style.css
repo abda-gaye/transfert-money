@@ -1,0 +1,300 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+}
+.dflex{
+    display: flex;
+}
+
+.dflex.jcc{
+    justify-content: center;
+}
+
+.dflex.jcsb{
+    justify-content: space-between;
+}
+
+.dflex.aic{
+    align-items: center;
+}
+
+.dflex.fdc{
+    flex-direction: column;
+}
+
+.flex1{
+    flex: 1;
+}
+
+.flex2{
+    flex: 2;
+}
+
+
+/* ------------------------ */
+.card{
+    height: 50vh;
+    width: 40%;
+    background-color: #27566B;
+    padding: 10px;
+    color: #E5E8E9;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+.photo{
+    border-left: 2px solid #E5E8E9;
+    padding-left: 10px;
+}
+
+.infos{
+    height: 40%;
+
+}
+
+.info{
+    padding-right: 10px;
+}
+
+.row .label{
+    font-size: 2rem;
+    font-weight: 900;
+
+}
+
+.row .data{
+    font-size: 1.5rem;
+    
+}
+
+.title{
+    font-size: 1.5rem;
+}
+
+.btn-detail{
+    font-weight: 900;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.form{
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    display: none;
+    left: 100%;
+    background-color: #27566B;
+    /* background-color: #06293D;27566B */
+}
+
+.form-group{
+    margin-bottom: 10px;
+}
+
+.from-control{
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+}
+.from-control1{
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    top: -50px;
+    background-color: #06293D;
+    right: 350px;
+    color: #fff;
+}
+
+input.from-control1{
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: #06293D;
+    outline: none;
+}
+.form-group label{
+    font-size: 1.20rem;
+}
+
+input.from-control{
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: #799eb0;
+    outline: none;
+}
+
+
+select{
+    outline: none;
+    border-radius: 5px;
+}
+
+.form button{
+    width: 100%;
+    background-color: #06293D;
+    color: #E5E8E9;
+    outline: none;
+    border: 1px solid #799eb0;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.next{
+    padding: 5px 20px;
+    font-size: 1.09rem;
+    margin-top: 10px;
+    background-color: #27566B;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    color: #E5E8E9;
+}
+
+button{
+    cursor: pointer;
+}
+
+table{
+    width: 100%;
+    background-color: #799eb0;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+
+}
+tr,td{
+    text-align: center;
+    line-height: 30px;
+    
+}
+
+.form.hide{
+    display: none;
+}
+
+.head1 {
+    display: none;
+    position: absolute;
+    height: 400px;
+    width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    filter: contrast(20);
+    
+}
+.head1 .dot {
+position: absolute;
+width: 50px;
+left: -5px;
+top: 17px;
+height: 50px;
+border-radius: 50%;
+filter: blur(4px);
+background-color: black;
+animation: point 2.5s infinite;
+
+}
+.head1 .dots span{
+    float: left;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-left: 15px;
+    border-radius: 50%;
+    filter: blur(4px);
+    background-color: black;
+
+    }
+    .head1 .dots{
+        margin-top: 17px;
+        margin-left: 15px;
+    animation: points 2.5s infinite;
+
+    }
+
+    @keyframes point {
+        50%{
+            transform: translate(200px);
+        }
+    }
+    @keyframes points {
+        50%{
+            transform: translate(-50px);
+        }
+        
+    }
+    .notification{
+        position: absolute;
+        font-size: 40px;
+        padding: 10px;
+        transition: 1.2s all;
+        left: -200px;
+        /* left: 600px; */
+        background-color: rgba(109, 7, 7, 0.9);
+        color: #fff;
+        font-weight: 900;
+        margin-top: 80px;
+        text-align: center;
+        border-radius: 20px;
+    }
+    .add-user-content{
+        position: absolute;
+        height: 50vh;
+        top: 0;
+        background-color: #27566B;
+         width: 300px;
+         display: none;
+        right: 100%;
+        /* display: flex; */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .add-user{
+        background-color: #06293D;
+        color: #fff;
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        width: 80px;
+        height: 30px;
+        font-size: 1.7em;
+        top: -26px;
+        left: 0;
+        font-weight: 900;
+        cursor: pointer;
+        text-align: center;
+    }
+    .from-control-add{
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+    }
+    .btnadd{
+        width: 100%;
+        padding: 14px;
+        background-color: #27566B;
+        color: #fff;
+        border-radius: 17px;
+    }
+    .transactions{
+        height: 50%;
+        overflow-y: scroll;
+    }
