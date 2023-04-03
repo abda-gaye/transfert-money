@@ -39,7 +39,7 @@ let users = [
       telephone: "781236709",
       email: "SyllaAsta@gmail.com",
       solde:1000,
-      photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFuJTIwYmxhY2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      photo: "https://images.unsplash.com/photo-1633419798503-0b0c628f267c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGJsYWNrJTIwZ2lybHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
       transactions: [{ numero: 6, date: "08-04-202", montant: 50200, sens: -1 },
       { numero: 13, date: "18-04-2023", montant: 50200, sens: 1 },
       { numero: 10, date: "18-09-2022", montant: 5000, sens: 1 },
@@ -194,7 +194,7 @@ btnsave.addEventListener('click',()=>{
   }
   // retrait
   if (montant.value > usercourant.solde && selecttrans.value=='r') {
-    myalert("votre solde est insuffisant",'','900px')
+    myalert("votre solde est insuffisant",'','700px')
 
   }
   if (montant.value < 500 && selecttrans.value=='r') {
@@ -320,12 +320,11 @@ search.addEventListener("input",()=>{
   const utilisateur = users.find(user=>user.telephone==searchvalue)
   if (utilisateur) {
     printUser(utilisateur)
-    btnnext.style.backgroundColor ='grey'
     search.value = ''
 
   }
   if (!utilisateur && searchvalue.length==9) {
-    myalert('utilisateur inexistant','','650px')
+    myalert('utilisateur inexistant','','750px')
     search.value = ''
   }
 
@@ -353,17 +352,31 @@ btnadd.addEventListener('click',()=>{
       telephone:addphonevalue,
       email:addemailvalue,
       solde:addsoldevalue,
-      photo:'https://images.unsplash.com/photo-1563721572772-fbf713fff374?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVuJTIwYmxhY2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+      photo:'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dXNlciUyMGljb25lfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
       transactions:[]
 
     }
   )
-  myalert("utilisateur ajouté avec succés",'green','500px')
+  myalert("utilisateur ajouté avec succés",'green','600px')
 
-  addemail.value = ''
-  addnom.value = ''
-  addphone.value = ''
-  addsolde.value = ''
-  addprenom.value = ''
-
+  // addemail.value = ''
+  // addnom.value = ''
+  // addphone.value = ''
+  // addsolde.value = ''
+  // addprenom.value = ''
+  validate()
 })
+
+function checkEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+function validate() {
+  email = document.querySelector("#addemail").value;
+
+  if (checkEmail(email)) {
+  } else {
+      myalert('Adresse e-mail non valide','','700px');
+  }
+  return false;
+}
