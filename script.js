@@ -4,11 +4,11 @@ let users = [
       nom: "John",
       telephone: "772236534",
       email: "jacque@gmail.com",
-      solde:5000,
+      solde:0,
       photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       transactions: [
-        { numero: 1, date: "12-04-2022", montant: 100000, sens: 1 },
-        { numero: 2, date: "22-11-2022", montant: 2000, sens: -1 },
+        // { numero: 1, date: "12-04-2022", montant: 100000, sens: 1 },
+        // { numero: 2, date: "22-11-2022", montant: 2000, sens: -1 },
       ],
     },
     {
@@ -16,12 +16,12 @@ let users = [
       nom: "dah",
       telephone: "773458267",
       email: "alice@gmail.com",
-      solde:4000,
+      solde:0,
       photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWVufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
       transactions: [
-        { numero: 10, date: "12-04-2022", montant: 100000, sens: -1 },
-        { numero: 20, date: "22-11-2022", montant: 2000, sens: 1 },
-        { numero: 30, date: "01-01-2023", montant: 45000, sens: 1 },
+        // { numero: 10, date: "12-04-2022", montant: 100000, sens: -1 },
+        // { numero: 20, date: "22-11-2022", montant: 2000, sens: 1 },
+        // { numero: 30, date: "01-01-2023", montant: 45000, sens: 1 },
       ],
     },
     {
@@ -29,21 +29,24 @@ let users = [
       nom: "robish",
       telephone: "771234567",
       email: "Mickel@gmail.com",
-      solde:2000,
+      solde:0,
       photo: "https://images.unsplash.com/photo-1563721572772-fbf713fff374?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWVuJTIwYmxhY2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      transactions: [{ numero: 6, date: "08-04-202", montant: 50200, sens: -1 }],
+      transactions: [
+        // { numero: 6, date: "08-04-202", montant: 50200, sens: -1 }
+      ],
     },
     {
       prenom: "Asta",
-      nom: "Sylla",
-      telephone: "71236709",
+      nom: "diop",
+      telephone: "771236709",
       email: "SyllaAsta@gmail.com",
-      solde:1000,
+      solde:0,
       photo: "https://images.unsplash.com/photo-1633419798503-0b0c628f267c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGJsYWNrJTIwZ2lybHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      transactions: [{ numero: 6, date: "08-04-202", montant: 50200, sens: -1 },
-      { numero: 13, date: "18-04-2023", montant: 50200, sens: 1 },
-      { numero: 10, date: "18-09-2022", montant: 5000, sens: 1 },
-      { numero: 10, date: "18-09-2022", montant: 5000, sens: -1 },
+      transactions: [
+        // { numero: 6, date: "08-04-202", montant: 50200, sens: -1 },
+      // { numero: 13, date: "18-04-2023", montant: 50200, sens: 1 },
+      // { numero: 10, date: "18-09-2022", montant: 5000, sens: 1 },
+      // { numero: 10, date: "18-09-2022", montant: 5000, sens: -1 },
   
   ],
     },
@@ -52,12 +55,13 @@ let users = [
       nom: "Sylla",
       telephone: "771236909",
       email: "SyllaAsta@gmail.com",
-      solde:1000,
+      solde:0,
       photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHdvbWFuJTIwYmxhY2t8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      transactions: [{ numero: 6, date: "08-04-202", montant: 50200, sens: -1 },
-      { numero: 13, date: "18-04-2023", montant: 50200, sens: 1 },
-      { numero: 10, date: "18-09-2022", montant: 5000, sens: 1 },
-      { numero: 10, date: "18-09-2022", montant: 5000, sens: -1 },
+      transactions: [
+      // { numero: 6, date: "08-04-202", montant: 50200, sens: -1 },
+      // { numero: 13, date: "18-04-2023", montant: 50200, sens: 1 },
+      // { numero: 10, date: "18-09-2022", montant: 5000, sens: 1 },
+      // { numero: 10, date: "18-09-2022", montant: 5000, sens: -1 },
   
   ],
     },
@@ -105,7 +109,7 @@ function getData(data) {
   let addsolde = document.querySelector('#addsolde')
   let addphoto = document.querySelector('#addphoto')
   let btnadd = document.querySelector('.btnadd')
-
+  let newIdUser = users[index].transactions.length
 
 
 
@@ -166,7 +170,7 @@ btnsave.addEventListener('click',()=>{
   // solde.innerText = parseInt(solde.innerText) - parseInt(montant.value)
   let usercourant=users[index];
   if (montant.value =='' || montant.value<0) {
-    myalert("vos champs ne peuvent pas etre vides ou negatifs !",'','600px')
+    myalert("vos champs ne peuvent pas etre vides ou negatifs !",'','700px')
     return
   }
   // depot 
@@ -175,12 +179,13 @@ btnsave.addEventListener('click',()=>{
     myalert("depot avec succes",'green','900px')
     usercourant.transactions.push(
         {
-          numero:7,
+          numero:newIdUser,
           date:new Date().toLocaleDateString(),
           montant:+montant.value,
           sens:1
         }
       )
+      newIdUser++
   printUser(users[index]);
   usercourant.solde = parseInt(solde.innerText) + parseInt(montant.value)
 
@@ -202,19 +207,23 @@ btnsave.addEventListener('click',()=>{
     myalert(" le montant à retirer doit etre superieur ou egal a 500",'','600px')
 
   }
+  if (montant.value < 500 && selecttrans.value=='d' && inputphone!='') {
+    myalert(" le montant à transferer doit etre superieur ou egal a 500",'','700px')
 
+  }
   
   if (montant.value <= usercourant.solde && selecttrans.value=='r' && montant.value >=500) {
     myalert("retrait avec succes ! ",'green',taille='900px')
 
     usercourant.transactions.push(
       {
-        numero:6,
+        numero:newIdUser,
         date:new Date().toLocaleDateString(),
         montant:-montant.value,
         sens:-1
       }
     )
+    newIdUser++
 printUser(users[index]);
 usercourant.solde = parseInt(solde.innerText) - parseInt(montant.value)
   }
@@ -250,32 +259,44 @@ btnDetail.addEventListener('click',()=>{
     const  utilisateurExpediteur= users[index];
     // Vérification si l'utilisateur existe et s'il a suffisamment de fonds pour le transfert
     if (!utilisateurDestinataire) {
-      myalert("Destinataire invalide !",'','900px');
-    } else if (montant > utilisateurExpediteur.transactions.reduce((total, transaction) => total + transaction.montant, 0)) {
-      myalert("Fonds insuffisants !","",'900px');
+    //  setTimeout(function(){
+    //     utilisateurExpediteur.solde -= montant;
+    //     utilisateurExpediteur.transactions.push({
+    //     numero:11,
+    //     date:new Date().toLocaleDateString(),
+    //     montant:-montant,
+    //     sens:-1
+
+    //   });
+    //  },3000)
+    //  utilisateurExpediteur.solde += montant
+     
+    } else if (parseInt(solde.innerText) < parseInt(montant)) {
+      myalert("Fonds insuffisants !","",'700px');
       return
-    } else {
+    } 
+    else {
       // // Ajout de la transaction d'expédition
       utilisateurExpediteur.transactions.push({
-        numero:11,
+        numero:newIdUser,
         date:new Date().toLocaleDateString(),
         montant:-montant,
         sens:-1
 
       });
-  
+      newIdUser++
       // Ajout de la transaction de réception
       utilisateurDestinataire.transactions.push({
-        numero:9,
+        numero:newIdUser,
         date:new Date().toLocaleDateString(),
         montant:montant,
         sens:1
 
       });
-  
+      newIdUser++
       myalert(`Transfert de ${montant} FCFA réussi à ${utilisateurDestinataire.nom} ${utilisateurDestinataire.prenom} !`,'green','650px');
       utilisateurDestinataire.solde = parseInt(solde.innerText) + parseInt(montant)
-      utilisateurExpediteur.solde = parseInt(solde.innerText) + parseInt(montant)
+      utilisateurExpediteur.solde = parseInt(solde.innerText) - parseInt(montant)
     }
     printUser(utilisateurDestinataire)
   }
@@ -285,26 +306,25 @@ btnDetail.addEventListener('click',()=>{
     const telephoneSuggestions = users
       .filter((user) => user.telephone.startsWith(phonesaisit))
       .map((user) => user.telephone);
-      console.log(telephoneSuggestions);
       // on efface les suggestions precedentes
       phonesuggestion.innerHTML = ''
        // Créez une liste déroulante des suggestions de téléphone
-    if (telephoneSuggestions.length > 0) {
+    if (phonesaisit.length >= 3) {
+
       const select = document.createElement("select");
       select.classList.add('from-control')
       select.setAttribute("id", "telephoneSuggestionsSelect");
-      select.addEventListener("change", handleTelephoneSelection);
-
+      select.addEventListener("click", handleTelephoneSelection);
       telephoneSuggestions.forEach((telephoneSuggestion) => {
         const option = document.createElement("option");
-        option.setAttribute("value", telephoneSuggestion);
+        option.setAttribute("id", telephoneSuggestion);
         option.innerHTML = telephoneSuggestion;
         select.appendChild(option);
       });
-
+      select.selectedIndex = 0
       phonesuggestion.appendChild(select);
+     
     }
-  
   })
   function handleTelephoneSelection() {
     // Récupérez la valeur sélectionnée dans la liste déroulante
@@ -320,11 +340,25 @@ btnDetail.addEventListener('click',()=>{
 search.addEventListener("input",()=>{
   const searchvalue = search.value
   // on fait la recherche
-  const utilisateur = users.find(user=>user.prenom===searchvalue)
+  let utilisateur = users.find(user=>user.prenom===searchvalue)
   if (utilisateur) {
     printUser(utilisateur)
-    // search.value = ''
-
+    search.value = ''
+  }
+  let phoneutilisateur = users.find(user=>user.telephone===searchvalue)
+  if (phoneutilisateur  && searchvalue.length==9) {
+    printUser(phoneutilisateur)
+    search.value = ''
+  }
+  let nomutilisateur = users.find(user=>user.nom===searchvalue)
+  if (nomutilisateur) {
+    printUser(nomutilisateur)
+    search.value = ''
+  }
+  let emailutilisateur = users.find(user=>user.email===searchvalue)
+  if (emailutilisateur) {
+    printUser(emailutilisateur)
+    search.value = ''
   }
   // if (!utilisateur && searchvalue.length<7) {
   //   myalert('utilisateur inexistant','','750px')
@@ -350,10 +384,13 @@ btnadd.addEventListener('click',()=>{
   let addsoldevalue =addsolde.value
   let addphotovalue =addphoto.value
   if (addnom.value===''|| addprenom.value===''||addphone.value===''||addemail.value===''|| addsolde.value==='' || addphoto.value==='') {
-    myalert("veiller remplir tous les champs",'','800px')
+    myalert("veiller remplir tous les champs",'','600px')
   }
  else{
-  users.push(
+ let usercourant = users[randomPos(users.length)]
+
+  users.splice(
+    index,0,
     {
       prenom:addprenomvalue,
       nom:addnomvalue,
@@ -364,9 +401,13 @@ btnadd.addEventListener('click',()=>{
       transactions:[]
 
     }
-  )
+    )
+    addDepot(usercourant,addsoldevalue)
   myalert("utilisateur ajouté avec succés",'green','600px')
+
+
  }
+ 
   addemail.value = ''
   addnom.value = ''
   addphone.value = ''
@@ -388,4 +429,15 @@ const validate = () => {
       myalert('Adresse e-mail non valide','','700px');
   }
   return false;
+}
+
+function addDepot(utilisateur,montant) {
+  utilisateur.solde +=montant;
+  utilisateur.transactions.push({
+    numero:newIdUser,
+    date:new Date().toLocaleDateString(),
+    montant:montant,
+    sens:1
+   })
+   newIdUser++
 }
